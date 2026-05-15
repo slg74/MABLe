@@ -68,6 +68,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/scottghome/dnd/Sources/MazesAndBigLizards/MonsterDefeatedView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/scottghome/dnd/Sources/MazesAndBigLizards/OverworldMap.swift"
         },
         {
@@ -106,6 +110,7 @@
         "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/GameState.swift.o",
         "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MazesApp.swift.o",
         "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Models.swift.o",
+        "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MonsterDefeatedView.swift.o",
         "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldMap.swift.o",
         "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldView.swift.o",
         "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TableSceneView.swift.o",
@@ -204,6 +209,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MonsterDefeatedView.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldMap.swift.o"
         },
         {
@@ -235,6 +244,7 @@
         "/Users/scottghome/dnd/Sources/MazesAndBigLizards/GameState.swift",
         "/Users/scottghome/dnd/Sources/MazesAndBigLizards/MazesApp.swift",
         "/Users/scottghome/dnd/Sources/MazesAndBigLizards/Models.swift",
+        "/Users/scottghome/dnd/Sources/MazesAndBigLizards/MonsterDefeatedView.swift",
         "/Users/scottghome/dnd/Sources/MazesAndBigLizards/OverworldMap.swift",
         "/Users/scottghome/dnd/Sources/MazesAndBigLizards/OverworldView.swift",
         "/Users/scottghome/dnd/Sources/MazesAndBigLizards/TableSceneView.swift",
@@ -267,6 +277,7 @@
       "/Users/scottghome/dnd/Sources/MazesAndBigLizards/GameState.swift",
       "/Users/scottghome/dnd/Sources/MazesAndBigLizards/MazesApp.swift",
       "/Users/scottghome/dnd/Sources/MazesAndBigLizards/Models.swift",
+      "/Users/scottghome/dnd/Sources/MazesAndBigLizards/MonsterDefeatedView.swift",
       "/Users/scottghome/dnd/Sources/MazesAndBigLizards/OverworldMap.swift",
       "/Users/scottghome/dnd/Sources/MazesAndBigLizards/OverworldView.swift",
       "/Users/scottghome/dnd/Sources/MazesAndBigLizards/TableSceneView.swift",
@@ -399,6 +410,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/scottghome/dnd/Sources/MazesAndBigLizards/MonsterDefeatedView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/scottghome/dnd/Sources/MazesAndBigLizards/OverworldMap.swift"
         },
         {
@@ -466,6 +481,10 @@
         {
           "kind" : "file",
           "name" : "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Models.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MonsterDefeatedView.swift.o"
         },
         {
           "kind" : "file",

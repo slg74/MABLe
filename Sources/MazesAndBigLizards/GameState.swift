@@ -2,7 +2,7 @@ import SwiftUI
 import Combine
 
 enum GameScreen {
-    case title, characterCreation, tableScene, overworld, dungeon, encounter, combat, levelUp, victory, gameOver, characterSheet
+    case title, characterCreation, tableScene, overworld, dungeon, encounter, combat, monsterDefeated, levelUp, victory, gameOver, characterSheet
 }
 
 class GameState: ObservableObject {
@@ -23,6 +23,8 @@ class GameState: ObservableObject {
     @Published var pendingMonster: Monster? = nil
     @Published var encounterMonsterInitiative: Int = 0
     @Published var monsterGoesFirst: Bool = false
+    @Published var defeatedMonster: Monster? = nil
+    @Published var pendingLevelUp: Bool = false
 
     private let dmQuotes = [
         "Dude, you rolled a 1. So gnarly.",
@@ -120,6 +122,27 @@ class GameState: ObservableObject {
         randomDMQuote()
     }
 
+    // MARK: - Monster death (shared by all attack paths)
+
+    func handleMonsterDeath(_ monster: Monster) {
+        guard var updatedCh = player else { return }
+        let partySize = npcParty.count + 1          // player + 3 NPCs
+        let xpEach = max(1, monster.xpValue / partySize)
+        let prevLevel = updatedCh.level
+        updatedCh.gainXP(xpEach)
+        let didLevel = updatedCh.level > prevLevel
+        player = updatedCh
+        dungeon?.removeMonster(id: monster.id)
+        combatLog.append("🎉 \(monster.name) slain! +\(xpEach) XP each")
+        combatMonster = nil
+        defeatedMonster = monster
+        pendingLevelUp = didLevel
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.screen = .monsterDefeated
+            self?.randomDMQuote()
+        }
+    }
+
     func playerAttack() -> CombatResult {
         guard var ch = player, var monster = combatMonster else {
             return CombatResult(attackRoll: 0, hit: false, damage: 0, critical: false, fumble: false, message: "?")
@@ -153,26 +176,7 @@ class GameState: ObservableObject {
         combatLog.append(msg)
 
         if !monster.isAlive {
-            var updatedCh = player ?? ch
-            updatedCh.gainXP(monster.xpValue)
-            let didLevel = updatedCh.level > (player?.level ?? 1)
-            player = updatedCh
-            dungeon?.removeMonster(id: monster.id)
-            combatLog.append("🎉 \(monster.name) slain! +\(monster.xpValue) XP")
-            combatMonster = nil
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) { [weak self] in
-                guard let self else { return }
-                if didLevel {
-                    self.screen = .levelUp
-                } else if self.combatReturnScreen == .overworld {
-                    self.screen = .overworld
-                    AmbientAudio.shared.play(.overworld)
-                } else {
-                    self.checkDungeonCleared()
-                }
-                self.randomDMQuote()
-            }
+            handleMonsterDeath(monster)
         } else {
             combatMonster = monster
         }
@@ -239,26 +243,7 @@ class GameState: ObservableObject {
         combatLog.append(msg)
 
         if !monster.isAlive {
-            var updatedCh = player!
-            updatedCh.gainXP(monster.xpValue)
-            let didLevel = updatedCh.level > (player?.level ?? 1)
-            player = updatedCh
-            dungeon?.removeMonster(id: monster.id)
-            combatLog.append("🎉 \(monster.name) slain! +\(monster.xpValue) XP")
-            combatMonster = nil
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) { [weak self] in
-                guard let self else { return }
-                if didLevel {
-                    self.screen = .levelUp
-                } else if self.combatReturnScreen == .overworld {
-                    self.screen = .overworld
-                    AmbientAudio.shared.play(.overworld)
-                } else {
-                    self.checkDungeonCleared()
-                }
-                self.randomDMQuote()
-            }
+            handleMonsterDeath(monster)
         } else {
             combatMonster = monster
         }
@@ -290,22 +275,7 @@ class GameState: ObservableObject {
         }
 
         if !monster.isAlive {
-            if var p = player {
-                p.gainXP(monster.xpValue)
-                let didLevel = p.level > (player?.level ?? 1)
-                player = p
-                dungeon?.removeMonster(id: monster.id)
-                combatLog.append("🎉 \(monster.name) felled by the party! +\(monster.xpValue) XP")
-                combatMonster = nil
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) { [weak self] in
-                    guard let self else { return }
-                    if didLevel { self.screen = .levelUp }
-                    else if self.combatReturnScreen == .overworld {
-                        self.screen = .overworld; AmbientAudio.shared.play(.overworld)
-                    } else { self.checkDungeonCleared() }
-                    self.randomDMQuote()
-                }
-            }
+            handleMonsterDeath(monster)
         } else {
             combatMonster = monster
         }

@@ -68,6 +68,12 @@
     "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Models~partial.swiftmodule",
     "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Models.swiftdeps"
   },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/MonsterDefeatedView.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MonsterDefeatedView.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MonsterDefeatedView.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MonsterDefeatedView~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MonsterDefeatedView.swiftdeps"
+  },
   "/Users/scottghome/dnd/Sources/MazesAndBigLizards/OverworldMap.swift": {
     "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldMap.d",
     "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldMap.swift.o",
