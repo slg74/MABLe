@@ -255,28 +255,25 @@ class GameState: ObservableObject {
     // MARK: - Combat – NPC party auto-attacks
 
     struct PartyAttackResult {
-        var member: PartyMember; var roll: Int; var hit: Bool; var damage: Int
+        var member: PartyMember; var roll: Int; var hit: Bool; var damage: Int; var damageRoll: Int
     }
 
-    @discardableResult
-    func partyAttacks() -> [PartyAttackResult] {
-        guard var monster = combatMonster else { return [] }
-        var results: [PartyAttackResult] = []
-
-        for member in npcParty.shuffled() {
-            guard monster.isAlive else { break }
-            let roll   = Int.random(in: 1...20)
-            let needed = max(member.thac0 - monster.armorClass, 2)
-            let hit    = roll == 20 || roll >= needed
-            var dmg    = 0
-            if hit {
-                dmg = max(1, Int.random(in: 1...member.damageDie) + member.damageBonus)
-                monster.currentHP -= dmg
-                combatLog.append("\(member.icon) \(member.name): \(member.weaponIcon) \(dmg) dmg (rolled \(roll))")
-            } else {
-                combatLog.append("\(member.icon) \(member.name): miss (rolled \(roll), need ≥\(needed))")
-            }
-            results.append(PartyAttackResult(member: member, roll: roll, hit: hit, damage: dmg))
+    func partySingleAttack(member: PartyMember) -> PartyAttackResult {
+        guard var monster = combatMonster else {
+            return PartyAttackResult(member: member, roll: 0, hit: false, damage: 0, damageRoll: 0)
+        }
+        let roll    = Int.random(in: 1...20)
+        let needed  = max(member.thac0 - monster.armorClass, 2)
+        let hit     = roll == 20 || roll >= needed
+        var dmg     = 0
+        var dieRoll = 0
+        if hit {
+            dieRoll = Int.random(in: 1...member.damageDie)
+            dmg = max(1, dieRoll + member.damageBonus)
+            monster.currentHP -= dmg
+            combatLog.append("\(member.icon) \(member.name): \(member.weaponIcon) \(dmg) dmg (d20:\(roll) / d\(member.damageDie):\(dieRoll))")
+        } else {
+            combatLog.append("\(member.icon) \(member.name): miss (d20:\(roll), need ≥\(needed))")
         }
 
         if !monster.isAlive {
@@ -289,21 +286,17 @@ class GameState: ObservableObject {
                 combatMonster = nil
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) { [weak self] in
                     guard let self else { return }
-                    if didLevel {
-                        self.screen = .levelUp
-                    } else if self.combatReturnScreen == .overworld {
-                        self.screen = .overworld
-                        AmbientAudio.shared.play(.overworld)
-                    } else {
-                        self.checkDungeonCleared()
-                    }
+                    if didLevel { self.screen = .levelUp }
+                    else if self.combatReturnScreen == .overworld {
+                        self.screen = .overworld; AmbientAudio.shared.play(.overworld)
+                    } else { self.checkDungeonCleared() }
                     self.randomDMQuote()
                 }
             }
         } else {
             combatMonster = monster
         }
-        return results
+        return PartyAttackResult(member: member, roll: roll, hit: hit, damage: dmg, damageRoll: dieRoll)
     }
 
     // MARK: - Combat – monster attacks

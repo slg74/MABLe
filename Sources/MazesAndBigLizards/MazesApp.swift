@@ -7,7 +7,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 #endif
 
 @main
-struct MazesAndBigLizardsApp: App {
+ struct MazesAndBigLizardsApp: App {
     @StateObject private var gameState = GameState()
     #if os(macOS)
     @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate

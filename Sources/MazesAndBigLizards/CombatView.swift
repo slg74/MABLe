@@ -247,9 +247,17 @@ struct CombatView: View {
             shakePlayer = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { shakePlayer = false }
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-            guard gs.screen == .combat else { return }
-            partyResults = gs.partyAttacks()
+        withAnimation { partyResults = [] }
+        for (i, member) in npcParty.shuffled().enumerated() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 + Double(i) * 0.85) {
+                guard gs.screen == .combat, gs.combatMonster != nil else { return }
+                let r = gs.partySingleAttack(member: member)
+                withAnimation(.spring(response: 0.3)) { partyResults.append(r) }
+                if r.hit {
+                    withAnimation(.easeInOut(duration: 0.1).repeatCount(3)) { pulseMonster = true }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { pulseMonster = false }
+                }
+            }
         }
     }
 }
@@ -672,9 +680,21 @@ struct PartyAttacksStrip: View {
                 }
                 HStack(spacing: 3) {
                     Text(r.member.icon).font(.system(size: 14))
-                    Text(r.hit ? "+\(r.damage)" : "—")
-                        .font(.system(size: 11, weight: .black, design: .monospaced))
-                        .foregroundColor(r.hit ? .green : Color(white: 0.28))
+                    VStack(alignment: .leading, spacing: 1) {
+                        Text(r.hit ? "+\(r.damage)" : "MISS")
+                            .font(.system(size: 11, weight: .black, design: .monospaced))
+                            .foregroundColor(r.hit ? .green : Color(white: 0.28))
+                        HStack(spacing: 3) {
+                            Text("d20:\(r.roll)")
+                                .font(.system(size: 8, design: .monospaced))
+                                .foregroundColor(r.roll == 20 ? .yellow : Color(white: 0.35))
+                            if r.hit {
+                                Text("d\(r.member.damageDie):\(r.damageRoll)")
+                                    .font(.system(size: 8, design: .monospaced))
+                                    .foregroundColor(.orange)
+                            }
+                        }
+                    }
                 }
                 .padding(.horizontal, 4)
             }

@@ -1,0 +1,35 @@
+name: MazesAndBigLizards
+options:
+  bundleIdPrefix: com.scottghome
+  xcodeVersion: "15.4"
+  deploymentTarget:
+    iOS: "16.0"
+targets:
+  MazesAndBigLizards:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: Sources/MazesAndBigLizards
+    info:
+      path: Sources/MazesAndBigLizards/Info.plist
+      properties:
+        CFBundleIdentifier: com.scottghome.mazesandbigliards
+        CFBundleName: Mazes & Big Lizards
+        CFBundleDisplayName: Mazes & Big Lizards
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.scottghome.mazesandbigliards
+        SWIFT_VERSION: 5.10
+        DEVELOPMENT_TEAM: ""
+        CODE_SIGN_STYLE: Automatic
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0

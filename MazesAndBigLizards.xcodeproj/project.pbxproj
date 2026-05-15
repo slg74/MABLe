@@ -1,0 +1,351 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		247824A698FD4340F834829B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0812F87371BE72238124BBDA /* ContentView.swift */; };
+		64917013B4296EA044518BD6 /* CharacterCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA345C0F9FB98560581740 /* CharacterCreationView.swift */; };
+		7F09A5D0E4D55B322092BED2 /* MazesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2897FC8E1AD50BFD84355936 /* MazesApp.swift */; };
+		8024D25E6692C226134FF4AE /* CharacterSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8928A7C6E9DA5845AE6DE798 /* CharacterSheetView.swift */; };
+		87C53C1D420F6EF07FEE807C /* AmbientAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4981D94C34367251D7C629F /* AmbientAudio.swift */; };
+		92EE759A78B15C31DD76AB28 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD9F1E071C8D4556359F02E /* Models.swift */; };
+		98883D0AD7877131CDC55614 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EAA6A634A8D70D4AFD2925 /* GameState.swift */; };
+		B5F0172E432C766380CCA9CD /* TableSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8EF1AF1DE774F3BDA68F6B /* TableSceneView.swift */; };
+		CED63A47A9429B5F814D42DC /* CombatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270928D3FC8ACCFED0DDD8BA /* CombatView.swift */; };
+		D5422A8F1746BFC84BC023DD /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C3456E74E64325FCA4002A /* TitleView.swift */; };
+		DF42B9E2D1C303145E1E291A /* OverworldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A37E57052E590B1E5326798 /* OverworldView.swift */; };
+		E90C3B82182AC78EB40E0634 /* OverworldMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261BE4E4490CE0FBE6E03598 /* OverworldMap.swift */; };
+		F18E29B0EEE9AFEBB2E1459F /* Dungeon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FC79FFB895EEB46075C4F54 /* Dungeon.swift */; };
+		FA6E5A575630E34998FCCB8D /* DungeonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF31EEE43FA3A1F6C060215 /* DungeonView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		00C3456E74E64325FCA4002A /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		0812F87371BE72238124BBDA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		13EAA6A634A8D70D4AFD2925 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		261BE4E4490CE0FBE6E03598 /* OverworldMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverworldMap.swift; sourceTree = "<group>"; };
+		270928D3FC8ACCFED0DDD8BA /* CombatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatView.swift; sourceTree = "<group>"; };
+		2897FC8E1AD50BFD84355936 /* MazesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazesApp.swift; sourceTree = "<group>"; };
+		31AA345C0F9FB98560581740 /* CharacterCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreationView.swift; sourceTree = "<group>"; };
+		387A1897341E60F457B95B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6A37E57052E590B1E5326798 /* OverworldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverworldView.swift; sourceTree = "<group>"; };
+		6FC79FFB895EEB46075C4F54 /* Dungeon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dungeon.swift; sourceTree = "<group>"; };
+		8928A7C6E9DA5845AE6DE798 /* CharacterSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSheetView.swift; sourceTree = "<group>"; };
+		B4981D94C34367251D7C629F /* AmbientAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientAudio.swift; sourceTree = "<group>"; };
+		BBD9F1E071C8D4556359F02E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		BF8EF1AF1DE774F3BDA68F6B /* TableSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSceneView.swift; sourceTree = "<group>"; };
+		C7880A4601715E8721AF9370 /* MazesAndBigLizards.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = MazesAndBigLizards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFF31EEE43FA3A1F6C060215 /* DungeonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DungeonView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1478C33F641A6C2A2E16D544 = {
+			isa = PBXGroup;
+			children = (
+				6C229D8BD915D1DAA50EA50F /* MazesAndBigLizards */,
+				3F7129F9ED10E203CEC486DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3F7129F9ED10E203CEC486DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7880A4601715E8721AF9370 /* MazesAndBigLizards.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6C229D8BD915D1DAA50EA50F /* MazesAndBigLizards */ = {
+			isa = PBXGroup;
+			children = (
+				B4981D94C34367251D7C629F /* AmbientAudio.swift */,
+				31AA345C0F9FB98560581740 /* CharacterCreationView.swift */,
+				8928A7C6E9DA5845AE6DE798 /* CharacterSheetView.swift */,
+				270928D3FC8ACCFED0DDD8BA /* CombatView.swift */,
+				0812F87371BE72238124BBDA /* ContentView.swift */,
+				6FC79FFB895EEB46075C4F54 /* Dungeon.swift */,
+				EFF31EEE43FA3A1F6C060215 /* DungeonView.swift */,
+				13EAA6A634A8D70D4AFD2925 /* GameState.swift */,
+				387A1897341E60F457B95B1D /* Info.plist */,
+				2897FC8E1AD50BFD84355936 /* MazesApp.swift */,
+				BBD9F1E071C8D4556359F02E /* Models.swift */,
+				261BE4E4490CE0FBE6E03598 /* OverworldMap.swift */,
+				6A37E57052E590B1E5326798 /* OverworldView.swift */,
+				BF8EF1AF1DE774F3BDA68F6B /* TableSceneView.swift */,
+				00C3456E74E64325FCA4002A /* TitleView.swift */,
+			);
+			name = MazesAndBigLizards;
+			path = Sources/MazesAndBigLizards;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9F614C14D3BEAE990D80B78 /* MazesAndBigLizards */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25841CB379DC24CE203DC8D3 /* Build configuration list for PBXNativeTarget "MazesAndBigLizards" */;
+			buildPhases = (
+				D454B1BF78E89D7DA641848D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MazesAndBigLizards;
+			packageProductDependencies = (
+			);
+			productName = MazesAndBigLizards;
+			productReference = C7880A4601715E8721AF9370 /* MazesAndBigLizards.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83B647280F166FC0FCB58765 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					A9F614C14D3BEAE990D80B78 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A2759E1501D5F3B111DCFAFA /* Build configuration list for PBXProject "MazesAndBigLizards" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 1478C33F641A6C2A2E16D544;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3F7129F9ED10E203CEC486DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9F614C14D3BEAE990D80B78 /* MazesAndBigLizards */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D454B1BF78E89D7DA641848D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87C53C1D420F6EF07FEE807C /* AmbientAudio.swift in Sources */,
+				64917013B4296EA044518BD6 /* CharacterCreationView.swift in Sources */,
+				8024D25E6692C226134FF4AE /* CharacterSheetView.swift in Sources */,
+				CED63A47A9429B5F814D42DC /* CombatView.swift in Sources */,
+				247824A698FD4340F834829B /* ContentView.swift in Sources */,
+				F18E29B0EEE9AFEBB2E1459F /* Dungeon.swift in Sources */,
+				FA6E5A575630E34998FCCB8D /* DungeonView.swift in Sources */,
+				98883D0AD7877131CDC55614 /* GameState.swift in Sources */,
+				7F09A5D0E4D55B322092BED2 /* MazesApp.swift in Sources */,
+				92EE759A78B15C31DD76AB28 /* Models.swift in Sources */,
+				E90C3B82182AC78EB40E0634 /* OverworldMap.swift in Sources */,
+				DF42B9E2D1C303145E1E291A /* OverworldView.swift in Sources */,
+				B5F0172E432C766380CCA9CD /* TableSceneView.swift in Sources */,
+				D5422A8F1746BFC84BC023DD /* TitleView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1F186DA71D613087978C98CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5C5AF04DDDD484B9D864C299 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8F094FC27C0C4CBAD8A766E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Sources/MazesAndBigLizards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.scottghome.mazesandbigliards;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9AB0005B58C47109DECD5578 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Sources/MazesAndBigLizards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.scottghome.mazesandbigliards;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		25841CB379DC24CE203DC8D3 /* Build configuration list for PBXNativeTarget "MazesAndBigLizards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9AB0005B58C47109DECD5578 /* Debug */,
+				8F094FC27C0C4CBAD8A766E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A2759E1501D5F3B111DCFAFA /* Build configuration list for PBXProject "MazesAndBigLizards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F186DA71D613087978C98CA /* Debug */,
+				5C5AF04DDDD484B9D864C299 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83B647280F166FC0FCB58765 /* Project object */;
+}
