@@ -196,6 +196,22 @@ struct MapGridView: View {
                 .offset(x: CGFloat(pp.col - vpC) * tileSize - tileSize * 0.5,
                         y: CGFloat(pp.row - vpR) * tileSize - tileSize * 0.5)
 
+            // ── Monster sprites (visible tiles only) ──────────────────
+            ForEach(dungeon.monsters.filter { m in
+                m.isAlive &&
+                m.position.col >= vpC && m.position.col < vpC + DGN_VP_COLS &&
+                m.position.row >= vpR && m.position.row < vpR + DGN_VP_ROWS &&
+                dungeon.tiles[m.position.row][m.position.col].visible
+            }) { monster in
+                Text(monster.icon)
+                    .font(.system(size: tileSize * 0.82))
+                    .frame(width: tileSize, height: tileSize)
+                    .shadow(color: monster.isBoss ? .red.opacity(0.9) : .orange.opacity(0.6),
+                            radius: monster.isBoss ? 6 : 3)
+                    .offset(x: CGFloat(monster.position.col - vpC) * tileSize,
+                            y: CGFloat(monster.position.row - vpR) * tileSize)
+            }
+
             // ── Legend pinned to bottom of viewport ───────────────────
             VStack {
                 Spacer()
@@ -203,6 +219,7 @@ struct MapGridView: View {
                     LegendItem(color: .yellow, symbol: "▼", label: "Stairs")
                     LegendItem(color: .orange, symbol: "■", label: "Chest")
                     LegendItem(color: .green,  symbol: "■", label: "Entry")
+                    LegendItem(color: .red,    symbol: "👹", label: "Enemy")
                 }
                 .padding(4)
                 .background(Color.black.opacity(0.7))

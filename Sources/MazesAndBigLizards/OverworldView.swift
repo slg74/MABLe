@@ -161,7 +161,7 @@ struct OverworldView: View {
         }
 
         gs.flash("⚠️  A \(monster.name) lunges at you \(terrainName)!")
-        gs.dmQuote = "Random encounter! A \(monster.name)! Roll initiative — which you already did because I decided it for you."
+        gs.dmQuote = "Random encounter! A \(monster.name) blocks your path. Roll for initiative — then ROLL TO HIT. This one's on you."
 
         // Brief delay so the flash reads before the screen flips
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
