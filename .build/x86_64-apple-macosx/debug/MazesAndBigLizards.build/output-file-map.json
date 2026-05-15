@@ -1,0 +1,89 @@
+{
+  "": {
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/master.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/AmbientAudio.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/AmbientAudio.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/AmbientAudio.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/AmbientAudio~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/AmbientAudio.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/CharacterCreationView.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterCreationView.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterCreationView.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterCreationView~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterCreationView.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/CharacterSheetView.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterSheetView.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterSheetView.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterSheetView~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterSheetView.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/CombatView.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CombatView.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CombatView.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CombatView~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CombatView.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/ContentView.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/ContentView.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/ContentView.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/ContentView~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/ContentView.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/Dungeon.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Dungeon.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Dungeon.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Dungeon~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Dungeon.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/DungeonView.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/DungeonView.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/DungeonView.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/DungeonView~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/DungeonView.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/GameState.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/GameState.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/GameState.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/GameState~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/GameState.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/MazesApp.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MazesApp.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MazesApp.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MazesApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MazesApp.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/Models.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Models.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Models.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Models~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Models.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/OverworldMap.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldMap.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldMap.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldMap~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldMap.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/OverworldView.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldView.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldView.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldView~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldView.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/TableSceneView.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TableSceneView.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TableSceneView.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TableSceneView~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TableSceneView.swiftdeps"
+  },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/TitleView.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TitleView.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TitleView.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TitleView~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TitleView.swiftdeps"
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:dnd}",
+            "name": "Debug MazesAndBigLizards",
+            "target": "MazesAndBigLizards",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug MazesAndBigLizards"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:dnd}",
+            "name": "Release MazesAndBigLizards",
+            "target": "MazesAndBigLizards",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release MazesAndBigLizards"
+        }
+    ]
+}

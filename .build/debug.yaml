@@ -1,0 +1,81 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "MazesAndBigLizards-debug.exe": ["<MazesAndBigLizards-debug.exe>"]
+  "MazesAndBigLizards-debug.module": ["<MazesAndBigLizards-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<MazesAndBigLizards-debug.exe>","<MazesAndBigLizards-debug.module>"]
+  "test": ["<MazesAndBigLizards-debug.exe>","<MazesAndBigLizards-debug.module>"]
+default: "main"
+nodes:
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards":
+    is-mutated: true
+commands:
+  "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards-entitlement.plist":
+    tool: write-auxiliary-file
+    inputs: ["<entitlement-plist>","<com.apple.security.get-task-allow>"]
+    outputs: ["/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards-entitlement.plist"]
+    description: "Write auxiliary file /Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards-entitlement.plist"
+
+  "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/scottghome/dnd/Sources/MazesAndBigLizards/AmbientAudio.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/CharacterCreationView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/CharacterSheetView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/CombatView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/ContentView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/Dungeon.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/DungeonView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/GameState.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/MazesApp.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/Models.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/OverworldMap.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/OverworldView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/TableSceneView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/TitleView.swift"]
+    outputs: ["/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/sources"]
+    description: "Write auxiliary file /Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/sources"
+
+  "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/AmbientAudio.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterCreationView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterSheetView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CombatView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/ContentView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Dungeon.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/DungeonView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/GameState.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MazesApp.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Models.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldMap.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TableSceneView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TitleView.swift.o"]
+    outputs: ["/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.product/Objects.LinkFileList"
+
+  "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+
+  "<MazesAndBigLizards-debug.exe>":
+    tool: phony
+    inputs: ["<MazesAndBigLizards-debug.exe-CodeSigning>"]
+    outputs: ["<MazesAndBigLizards-debug.exe>"]
+
+  "<MazesAndBigLizards-debug.module>":
+    tool: phony
+    inputs: ["/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/AmbientAudio.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterCreationView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterSheetView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CombatView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/ContentView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Dungeon.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/DungeonView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/GameState.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MazesApp.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Models.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldMap.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TableSceneView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TitleView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.swiftmodule"]
+    outputs: ["<MazesAndBigLizards-debug.module>"]
+
+  "C.MazesAndBigLizards-debug.exe":
+    tool: shell
+    inputs: ["/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/AmbientAudio.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterCreationView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterSheetView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CombatView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/ContentView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Dungeon.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/DungeonView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/GameState.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MazesApp.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Models.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldMap.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TableSceneView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TitleView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.product/Objects.LinkFileList"]
+    outputs: ["/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards"]
+    description: "Linking ./.build/x86_64-apple-macosx/debug/MazesAndBigLizards"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug","-o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards","-module-name","MazesAndBigLizards","-emit-executable","-Xlinker","-alias","-Xlinker","_MazesAndBigLizards_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.product/Objects.LinkFileList","-target","x86_64-apple-macosx13.0","-Xlinker","-add_ast_path","-Xlinker","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.swiftmodule","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.MazesAndBigLizards-debug.exe-entitlements":
+    tool: shell
+    inputs: ["/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards-entitlement.plist"]
+    outputs: ["<MazesAndBigLizards-debug.exe-CodeSigning>"]
+    description: "Applying debug entitlements to ./.build/x86_64-apple-macosx/debug/MazesAndBigLizards"
+    args: ["codesign","--force","--sign","-","--entitlements","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards-entitlement.plist","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards"]
+
+  "C.MazesAndBigLizards-debug.module":
+    tool: shell
+    inputs: ["/Users/scottghome/dnd/Sources/MazesAndBigLizards/AmbientAudio.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/CharacterCreationView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/CharacterSheetView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/CombatView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/ContentView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/Dungeon.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/DungeonView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/GameState.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/MazesApp.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/Models.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/OverworldMap.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/OverworldView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/TableSceneView.swift","/Users/scottghome/dnd/Sources/MazesAndBigLizards/TitleView.swift","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/sources"]
+    outputs: ["/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/AmbientAudio.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterCreationView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CharacterSheetView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/CombatView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/ContentView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Dungeon.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/DungeonView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/GameState.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MazesApp.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Models.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldMap.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/OverworldView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TableSceneView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/TitleView.swift.o","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.swiftmodule"]
+    description: "Compiling Swift Module 'MazesAndBigLizards' (14 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","MazesAndBigLizards","-emit-dependencies","-emit-module","-emit-module-path","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.swiftmodule","-output-file-map","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/output-file-map.json","-incremental","-c","@/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/sources","-I","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug","-target","x86_64-apple-macosx13.0","-swift-version","5","-enable-batch-mode","-index-store-path","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j16","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","MazesAndBigLizards_main","-color-diagnostics","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","dnd"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/scottghome/dnd/Sources/MazesAndBigLizards/","/Users/scottghome/dnd/Package.swift","/Users/scottghome/dnd/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
