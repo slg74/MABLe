@@ -44,6 +44,12 @@
     "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/DungeonView~partial.swiftmodule",
     "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/DungeonView.swiftdeps"
   },
+  "/Users/scottghome/dnd/Sources/MazesAndBigLizards/EncounterRevealView.swift": {
+    "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/EncounterRevealView.d",
+    "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/EncounterRevealView.swift.o",
+    "swiftmodule": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/EncounterRevealView~partial.swiftmodule",
+    "swift-dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/EncounterRevealView.swiftdeps"
+  },
   "/Users/scottghome/dnd/Sources/MazesAndBigLizards/GameState.swift": {
     "dependencies": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/GameState.d",
     "object": "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/GameState.swift.o",

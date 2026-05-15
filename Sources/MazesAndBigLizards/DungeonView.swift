@@ -35,24 +35,6 @@ struct DungeonView: View {
 
                 Spacer()
 
-                // Monster list (visible ones)
-                if let dungeon = gs.dungeon {
-                    let visible = dungeon.monsters.filter { $0.isAlive && dungeon.tiles[$0.position.row][$0.position.col].visible }
-                    if !visible.isEmpty {
-                        HStack {
-                            Text("NEARBY:")
-                                .font(.system(size: 9, weight: .bold, design: .monospaced))
-                                .foregroundColor(Color(white: 0.35))
-                            ForEach(visible) { m in
-                                Text("\(m.icon)\(m.name)")
-                                    .font(.system(size: 10, design: .monospaced))
-                                    .foregroundColor(m.isBoss ? .red : .orange)
-                            }
-                        }
-                        .padding(.horizontal, 16)
-                        .padding(.bottom, 4)
-                    }
-                }
 
                 // Player HUD
                 if let p = gs.player {
@@ -207,19 +189,6 @@ struct MapGridView: View {
             }
             .frame(width: vpW, height: vpH)
 
-            // ── Monsters (only those inside the viewport) ─────────────
-            ForEach(dungeon.monsters.filter { $0.isAlive }) { monster in
-                let mr = monster.position.row, mc = monster.position.col
-                if mr >= vpR && mr < vpR + DGN_VP_ROWS &&
-                   mc >= vpC && mc < vpC + DGN_VP_COLS &&
-                   dungeon.tiles[mr][mc].visible {
-                    Text(monster.isBoss ? "🐉" : monster.icon)
-                        .font(.system(size: monster.isBoss ? 14 : 11))
-                        .frame(width: tileSize, height: tileSize)
-                        .offset(x: CGFloat(mc - vpC) * tileSize,
-                                y: CGFloat(mr - vpR) * tileSize)
-                }
-            }
 
             // ── Party sprite ──────────────────────────────────────────
             DungeonPartySprite()

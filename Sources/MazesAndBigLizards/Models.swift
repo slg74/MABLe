@@ -186,9 +186,11 @@ struct Monster: Identifiable {
 
     var isAlive: Bool { currentHP > 0 }
 
+    var encounterLine: String = ""
+
     init(name: String, ac: Int, hp: Int, thac0: Int, damageDie: Int,
          damageBonus: Int = 0, xp: Int, icon: String, flavor: String,
-         level: Int = 1, boss: Bool = false) {
+         level: Int = 1, boss: Bool = false, encounterLine: String = "") {
         self.id = UUID()
         self.name = name
         self.armorClass = ac
@@ -202,6 +204,7 @@ struct Monster: Identifiable {
         self.flavor = flavor
         self.level = level
         self.isBoss = boss
+        self.encounterLine = encounterLine
     }
 
     // AC values use descending THAC0 math: roll ≥ THAC0 − AC to hit.
@@ -211,33 +214,84 @@ struct Monster: Identifiable {
     static func makeGoblin() -> Monster {
         Monster(name: "Goblin", ac: 17, hp: Int.random(in: 4...7),
                 thac0: 20, damageDie: 6, xp: 25, icon: "👹",
-                flavor: "Small. Green. Absolutely rancid.", level: 1)
+                flavor: "Small. Green. Absolutely rancid.", level: 1,
+                encounterLine: "A goblin skitters out from behind a barrel. Smells awful. Confidence completely unwarranted.")
     }
     static func makeSkeleton() -> Monster {
         Monster(name: "Skeleton", ac: 15, hp: Int.random(in: 5...8),
                 thac0: 19, damageDie: 6, xp: 35, icon: "💀",
-                flavor: "Bones that missed the memo about being dead.", level: 1)
+                flavor: "Bones that missed the memo about being dead.", level: 1,
+                encounterLine: "Bones creak in the dark. A skeleton assembles itself from the dungeon floor. It points at you. Rude.")
     }
     static func makeOrc() -> Monster {
         Monster(name: "Orc", ac: 13, hp: Int.random(in: 6...12),
                 thac0: 18, damageDie: 8, xp: 60, icon: "👾",
-                flavor: "Bigger. Uglier. Still rancid.", level: 2)
+                flavor: "Bigger. Uglier. Still rancid.", level: 2,
+                encounterLine: "An orc steps into the torchlight. *leans back* Big. Mean. Absolutely going to ruin your evening.")
     }
     static func makeZombie() -> Monster {
         Monster(name: "Zombie", ac: 11, hp: Int.random(in: 8...16),
                 thac0: 18, damageDie: 8, xp: 75, icon: "🧟",
-                flavor: "Slow. Relentless. Has seen better days.", level: 2)
+                flavor: "Slow. Relentless. Has seen better days.", level: 2,
+                encounterLine: "Something shambles toward you. It used to be a person. Now it's your problem.")
     }
     static func makeTroll() -> Monster {
         Monster(name: "Cave Troll", ac: 7, hp: Int.random(in: 28...44),
                 thac0: 15, damageDie: 12, damageBonus: 4, xp: 400, icon: "👺",
-                flavor: "Regenerates 3 HP/round. Bring fire. Seriously.", level: 5)
+                flavor: "Regenerates 3 HP/round. Bring fire. Seriously.", level: 5,
+                encounterLine: "A cave troll fills the doorway. *slow smile* It regenerates, by the way. I may have forgotten to mention that.")
     }
     static func makeBigLizard() -> Monster {
         Monster(name: "BIG LIZARD", ac: 2, hp: 88,
                 thac0: 5, damageDie: 20, damageBonus: 8, xp: 5000, icon: "🐉",
                 flavor: "The Big Lizard awakens. Your life choices led you here.",
-                level: 20, boss: true)
+                level: 20, boss: true,
+                encounterLine: "*stands up from behind the screen* This is it. The Big Lizard. This is what it was all building to. I am so proud of this encounter.")
+    }
+
+    // MARK: - New monsters
+
+    static func makeSoulSucker() -> Monster {
+        Monster(name: "Soul Sucker", ac: 12, hp: Int.random(in: 10...18),
+                thac0: 17, damageDie: 8, damageBonus: 1, xp: 120, icon: "🐙",
+                flavor: "Three writhing heads. Each one screaming. Different key.", level: 3,
+                encounterLine: "Three heads emerge from the slime. Each one screaming. Different key. *drums fingers on the table* Roll for initiative.")
+    }
+    static func makeDoomGazer() -> Monster {
+        Monster(name: "Doom Gazer", ac: 10, hp: Int.random(in: 8...14),
+                thac0: 18, damageDie: 6, xp: 100, icon: "👁️",
+                flavor: "A floating eye the size of your head. It does not blink.", level: 2,
+                encounterLine: "A single eye opens in the darkness ahead. *quiet voice* It's been watching you since the entrance.")
+    }
+    static func makeVoidStalker() -> Monster {
+        Monster(name: "Void Stalker", ac: 14, hp: Int.random(in: 6...10),
+                thac0: 19, damageDie: 6, xp: 80, icon: "🦇",
+                flavor: "Swarms from the dark. Leathery wings. Completely silent.", level: 2,
+                encounterLine: "The torch goes out. You hear wings. *leans forward* Many, many wings.")
+    }
+    static func makeCryptSpider() -> Monster {
+        Monster(name: "Crypt Spider", ac: 13, hp: Int.random(in: 9...16),
+                thac0: 18, damageDie: 8, damageBonus: 1, xp: 110, icon: "🕷️",
+                flavor: "Webs you can't see until you're already in them.", level: 3,
+                encounterLine: "You walk face-first into a web. Something drops from the ceiling behind you. *checks notes* Yeah, it's big.")
+    }
+    static func makeBoneSerpent() -> Monster {
+        Monster(name: "Bone Serpent", ac: 11, hp: Int.random(in: 12...20),
+                thac0: 17, damageDie: 8, xp: 130, icon: "🐍",
+                flavor: "Undead scales. Rattles like a bag of rocks. Smells worse.", level: 3,
+                encounterLine: "Something slithers over your boot. No eyes. *pause* It doesn't need them. It already knows where you are.")
+    }
+    static func makeBloodWraith() -> Monster {
+        Monster(name: "Blood Wraith", ac: 9, hp: Int.random(in: 14...22),
+                thac0: 16, damageDie: 10, xp: 200, icon: "👻",
+                flavor: "Passes through walls. Feeds on your life force. Unbelievably rude.", level: 4,
+                encounterLine: "Temperature drops ten degrees. The figure ahead doesn't cast a shadow. It turns. *very slowly* It smiles.")
+    }
+    static func makeDeathScorpion() -> Monster {
+        Monster(name: "Death Scorpion", ac: 8, hp: Int.random(in: 20...32),
+                thac0: 16, damageDie: 10, damageBonus: 2, xp: 250, icon: "🦂",
+                flavor: "Claws that shear through plate. The tail is considerably worse.", level: 4,
+                encounterLine: "That clicking sound? That's its claws on the stone. *consults notes, nods gravely* The tail is raised. This is fine.")
     }
 }
 

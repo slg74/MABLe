@@ -2,7 +2,7 @@ import SwiftUI
 import Combine
 
 enum GameScreen {
-    case title, characterCreation, tableScene, overworld, dungeon, combat, levelUp, victory, gameOver, characterSheet
+    case title, characterCreation, tableScene, overworld, dungeon, encounter, combat, levelUp, victory, gameOver, characterSheet
 }
 
 class GameState: ObservableObject {
@@ -20,6 +20,9 @@ class GameState: ObservableObject {
     @Published var showNotification: Bool = false
     @Published var combatReturnScreen: GameScreen = .dungeon
     @Published var charSheetReturn: GameScreen = .tableScene
+    @Published var pendingMonster: Monster? = nil
+    @Published var encounterMonsterInitiative: Int = 0
+    @Published var monsterGoesFirst: Bool = false
 
     private let dmQuotes = [
         "Dude, you rolled a 1. So gnarly.",
@@ -100,11 +103,21 @@ class GameState: ObservableObject {
 
     func initiateCombat(with monster: Monster, returnTo: GameScreen = .dungeon) {
         combatReturnScreen = returnTo
+        pendingMonster = monster
+        encounterMonsterInitiative = Int.random(in: 1...20)
+        monsterGoesFirst = false
+        screen = .encounter
+        AmbientAudio.shared.play(.combat)
+    }
+
+    func beginCombat(monsterFirst: Bool) {
+        guard let monster = pendingMonster else { return }
+        monsterGoesFirst = monsterFirst
         combatMonster = monster
-        combatLog = ["⚔️ \(monster.name) appears!", "📖 \(monster.flavor)"]
+        combatLog = ["⚔️ \(monster.name) lunges from the darkness!", "📖 \(monster.flavor)"]
+        pendingMonster = nil
         screen = .combat
         randomDMQuote()
-        AmbientAudio.shared.play(.combat)
     }
 
     func playerAttack() -> CombatResult {
@@ -216,8 +229,8 @@ class GameState: ObservableObject {
         let dmg: Int
         let msg: String
         if critical {
-            dmg = max(1, dieRoll * 2 + ch.strBonus + ch.weapon.damageBonus)
-            msg = "⚡️ CRITICAL! \(ch.weapon.icon) \(ch.weapon.name): \(dmg) dmg (2×\(dieRoll))!"
+            dmg = max(1, dieRoll * 2 + ch.strBonus + ch.weapon.damageBonus + 5)
+            msg = "⚡️ CRITICAL! \(ch.weapon.icon) \(ch.weapon.name): \(dmg) dmg (2×\(dieRoll)+5)!"
         } else {
             dmg = max(1, dieRoll + ch.strBonus + ch.weapon.damageBonus)
             msg = "💥 \(ch.weapon.icon) \(ch.weapon.name): \(dmg) dmg (rolled \(dieRoll))"

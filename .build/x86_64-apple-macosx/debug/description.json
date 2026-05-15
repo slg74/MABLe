@@ -52,6 +52,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/scottghome/dnd/Sources/MazesAndBigLizards/EncounterRevealView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/scottghome/dnd/Sources/MazesAndBigLizards/GameState.swift"
         },
         {
@@ -98,6 +102,7 @@
         "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/ContentView.swift.o",
         "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Dungeon.swift.o",
         "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/DungeonView.swift.o",
+        "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/EncounterRevealView.swift.o",
         "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/GameState.swift.o",
         "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/MazesApp.swift.o",
         "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/Models.swift.o",
@@ -183,6 +188,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/EncounterRevealView.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/GameState.swift.o"
         },
         {
@@ -222,6 +231,7 @@
         "/Users/scottghome/dnd/Sources/MazesAndBigLizards/ContentView.swift",
         "/Users/scottghome/dnd/Sources/MazesAndBigLizards/Dungeon.swift",
         "/Users/scottghome/dnd/Sources/MazesAndBigLizards/DungeonView.swift",
+        "/Users/scottghome/dnd/Sources/MazesAndBigLizards/EncounterRevealView.swift",
         "/Users/scottghome/dnd/Sources/MazesAndBigLizards/GameState.swift",
         "/Users/scottghome/dnd/Sources/MazesAndBigLizards/MazesApp.swift",
         "/Users/scottghome/dnd/Sources/MazesAndBigLizards/Models.swift",
@@ -253,6 +263,7 @@
       "/Users/scottghome/dnd/Sources/MazesAndBigLizards/ContentView.swift",
       "/Users/scottghome/dnd/Sources/MazesAndBigLizards/Dungeon.swift",
       "/Users/scottghome/dnd/Sources/MazesAndBigLizards/DungeonView.swift",
+      "/Users/scottghome/dnd/Sources/MazesAndBigLizards/EncounterRevealView.swift",
       "/Users/scottghome/dnd/Sources/MazesAndBigLizards/GameState.swift",
       "/Users/scottghome/dnd/Sources/MazesAndBigLizards/MazesApp.swift",
       "/Users/scottghome/dnd/Sources/MazesAndBigLizards/Models.swift",
@@ -372,6 +383,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/scottghome/dnd/Sources/MazesAndBigLizards/EncounterRevealView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/scottghome/dnd/Sources/MazesAndBigLizards/GameState.swift"
         },
         {
@@ -435,6 +450,10 @@
         {
           "kind" : "file",
           "name" : "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/DungeonView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/scottghome/dnd/.build/x86_64-apple-macosx/debug/MazesAndBigLizards.build/EncounterRevealView.swift.o"
         },
         {
           "kind" : "file",

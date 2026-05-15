@@ -138,7 +138,14 @@ struct CombatView: View {
                     .padding(.bottom, 10)
             }
         }
-        .onAppear { displayedValue = 20; phase = .rollToHit }
+        .onAppear {
+            displayedValue = 20
+            phase = .rollToHit
+            if gs.monsterGoesFirst {
+                gs.monsterGoesFirst = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { monsterAttack() }
+            }
+        }
     }
 
     @ViewBuilder

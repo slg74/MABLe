@@ -49,6 +49,7 @@ struct ContentView: View {
                 case .tableScene:        TableSceneView()
                 case .overworld:         OverworldView()
                 case .dungeon:           DungeonView()
+                case .encounter:         EncounterRevealView()
                 case .combat:            CombatView()
                 case .levelUp:           LevelUpView()
                 case .victory:           VictoryView()

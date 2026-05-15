@@ -77,9 +77,9 @@ class Dungeon: ObservableObject {
         // Monsters — pool depends on difficulty
         let pool: [() -> Monster]
         switch difficulty {
-        case 1:  pool = [Monster.makeGoblin, Monster.makeSkeleton, Monster.makeGoblin]
-        case 2:  pool = [Monster.makeOrc, Monster.makeZombie, Monster.makeSkeleton]
-        default: pool = [Monster.makeOrc, Monster.makeZombie, Monster.makeTroll]
+        case 1:  pool = [Monster.makeGoblin, Monster.makeSkeleton, Monster.makeVoidStalker, Monster.makeDoomGazer]
+        case 2:  pool = [Monster.makeOrc, Monster.makeZombie, Monster.makeSoulSucker, Monster.makeCryptSpider, Monster.makeBoneSerpent]
+        default: pool = [Monster.makeBloodWraith, Monster.makeDeathScorpion, Monster.makeBoneSerpent, Monster.makeSoulSucker]
         }
         for (i, room) in rooms.dropFirst().dropLast().enumerated() {
             var m = pool[i % pool.count]()
@@ -90,7 +90,7 @@ class Dungeon: ObservableObject {
         // Sub-boss before last room
         if rooms.count >= 2 {
             let penultimate = rooms[rooms.count - 2]
-            var sub: Monster = difficulty >= 2 ? Monster.makeTroll() : Monster.makeOrc()
+            var sub: Monster = difficulty >= 2 ? Monster.makeDeathScorpion() : Monster.makeCryptSpider()
             sub.position = GridPosition(row: penultimate.row + 1, col: penultimate.col + 1)
             monsters.append(sub)
         }
