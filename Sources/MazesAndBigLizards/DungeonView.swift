@@ -48,13 +48,12 @@ struct DungeonView: View {
                 .padding(.vertical, 16)
 
                 // Quick actions
-                HStack(spacing: 12) {
-                    Button("🌍 Overworld") { gs.returnToOverworld() }
+                HStack(spacing: 8) {
+                    Button("🌍 World") { gs.returnToOverworld() }
                         .buttonStyle(MetalButtonStyle(color: Color(white: 0.2)))
                     Button("📋 Sheet") { gs.openCharacterSheet() }
                         .buttonStyle(MetalButtonStyle(color: Color(white: 0.2)))
                     Button("🎲 Wait") {
-                        // Waiting restores 1 HP
                         if var p = gs.player, p.currentHP < p.maxHP {
                             p.currentHP += 1
                             gs.player = p
@@ -63,7 +62,10 @@ struct DungeonView: View {
                         gs.randomDMQuote()
                     }
                     .buttonStyle(MetalButtonStyle(color: Color(white: 0.2)))
+                    Button("💾 Exit") { gs.exitAndSave() }
+                        .buttonStyle(MetalButtonStyle(color: Color(red: 0.15, green: 0.15, blue: 0.35)))
                 }
+                .font(.system(size: 11, design: .monospaced))
                 .padding(.bottom, 24)
             }
         }

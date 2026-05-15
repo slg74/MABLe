@@ -348,6 +348,68 @@ class GameState: ObservableObject {
         }
     }
 
+    // MARK: - Save / Load
+
+    private let saveKey = "MazesAndBigLizards_SavedGame"
+
+    var hasSavedGame: Bool {
+        UserDefaults.standard.data(forKey: saveKey) != nil
+    }
+
+    func saveGame() {
+        guard let p = player else { return }
+        let save = SavedGame(
+            player: p,
+            inDungeon: dungeon != nil,
+            overworldRow: overworldMap?.playerPos.row ?? 18,
+            overworldCol: overworldMap?.playerPos.col ?? 10,
+            dungeonLevel: dungeonLevel,
+            dungeonDifficulty: currentDungeonDifficulty,
+            dungeonName: currentDungeonName,
+            dmQuote: dmQuote
+        )
+        if let data = try? JSONEncoder().encode(save) {
+            UserDefaults.standard.set(data, forKey: saveKey)
+        }
+    }
+
+    func loadGame() {
+        guard let data = UserDefaults.standard.data(forKey: saveKey),
+              let save = try? JSONDecoder().decode(SavedGame.self, from: data) else { return }
+        player = save.player
+        dungeonLevel = save.dungeonLevel
+        currentDungeonDifficulty = save.dungeonDifficulty
+        currentDungeonName = save.dungeonName
+        dmQuote = save.dmQuote
+        combatLog = []
+        combatMonster = nil
+        if save.inDungeon && !save.dungeonName.isEmpty {
+            dungeon = Dungeon(difficulty: save.dungeonDifficulty)
+            overworldMap = nil
+            screen = .dungeon
+            AmbientAudio.shared.play(.dungeon)
+            dmQuote = "Back in \(save.dungeonName), floor \(save.dungeonLevel). Right where you left off. More or less."
+        } else {
+            dungeon = nil
+            overworldMap = OverworldMap(startPos: GridPosition(row: save.overworldRow, col: save.overworldCol))
+            screen = .overworld
+            AmbientAudio.shared.play(.overworld)
+            dmQuote = "Welcome back, \(save.player.name). The overworld didn't miss you. I did."
+        }
+    }
+
+    func deleteSave() {
+        UserDefaults.standard.removeObject(forKey: saveKey)
+    }
+
+    func exitAndSave() {
+        saveGame()
+        combatMonster = nil
+        dungeon = nil
+        screen = .title
+        AmbientAudio.shared.stop()
+    }
+
     func reset() {
         player        = nil
         dungeon       = nil

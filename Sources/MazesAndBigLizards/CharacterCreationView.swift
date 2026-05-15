@@ -3,7 +3,8 @@ import SwiftUI
 struct CharacterCreationView: View {
     @EnvironmentObject var gs: GameState
 
-    @State private var name: String = ""
+    @State private var name: String = "Janak"
+    private let nameOptions = ["Janak", "Sonja", "Harald"]
     @State private var selectedClass: CharacterClass = .fighter
     @State private var selectedRace: CharacterRace = .human
     @State private var stats: (str: Int, dex: Int, con: Int, int: Int, wis: Int, cha: Int) = (10, 10, 10, 10, 10, 10)
@@ -25,27 +26,37 @@ struct CharacterCreationView: View {
                            startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
 
-            ScrollView {
-                VStack(spacing: 20) {
-                    Text("📜 CHARACTER CREATION")
-                        .font(.system(size: 20, weight: .black, design: .monospaced))
-                        .foregroundColor(.yellow)
-                        .padding(.top, 40)
+            // Outer VStack keeps the name field above (and outside) the ScrollView
+            // so macOS NSScrollView doesn't intercept key events from NSTextField.
+            VStack(spacing: 0) {
+                Text("📜 CHARACTER CREATION")
+                    .font(.system(size: 20, weight: .black, design: .monospaced))
+                    .foregroundColor(.yellow)
+                    .padding(.vertical, 16)
 
-                    // Name field
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text("CHARACTER NAME")
-                            .sectionLabel()
-                        TextField("Enter your hero's name...", text: $name)
-                            .font(.system(.body, design: .monospaced))
-                            .foregroundColor(.white)
-                            .padding(10)
-                            .background(Color(white: 0.12))
-                            .cornerRadius(6)
-                            .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color(white: 0.3), lineWidth: 1))
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("CHARACTER NAME").sectionLabel()
+                    Picker("", selection: $name) {
+                        ForEach(nameOptions, id: \.self) { n in
+                            Text(n)
+                                .font(.system(.body, design: .monospaced))
+                                .tag(n)
+                        }
                     }
-                    .padding(.horizontal, 24)
+                    .pickerStyle(.menu)
+                    .labelsHidden()
+                    .padding(8)
+                    .background(Color(white: 0.12))
+                    .cornerRadius(6)
+                    .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color(white: 0.3), lineWidth: 1))
+                    .foregroundColor(.white)
+                    .accentColor(.yellow)
+                }
+                .padding(.horizontal, 24)
+                .padding(.bottom, 12)
 
+                ScrollView {
+                    VStack(spacing: 20) {
                     // Class selector
                     VStack(alignment: .leading, spacing: 8) {
                         Text("CLASS").sectionLabel()
@@ -105,7 +116,7 @@ struct CharacterCreationView: View {
 
                     // Begin button
                     Button("BEGIN ADVENTURE ⚔️") {
-                        let n = name.isEmpty ? "\(selectedRace.rawValue) \(selectedClass.rawValue)" : name
+                        let n = name
                         var s = stats
                         selectedRace.applyBonuses(str: &s.str, dex: &s.dex, con: &s.con, cha: &s.cha)
                         let character = Character(
@@ -119,6 +130,7 @@ struct CharacterCreationView: View {
                     .padding(.bottom, 40)
                 }
             }
+            } // outer VStack
         }
         .onAppear { rollStats() }
     }
@@ -255,6 +267,7 @@ struct StatPill: View {
         .overlay(RoundedRectangle(cornerRadius: 6).stroke(color.opacity(0.4), lineWidth: 1))
     }
 }
+
 
 extension Text {
     func sectionLabel() -> some View {

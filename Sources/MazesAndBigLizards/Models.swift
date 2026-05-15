@@ -141,9 +141,15 @@ struct Character: Identifiable, Codable {
         self.intelligence = int
         self.wisdom       = wis
         self.charisma     = cha
-        let hpRoll = Int.random(in: characterClass.hitDie / 2 ... characterClass.hitDie)
+        let raceHP: Int
+        switch race {
+        case .human:    raceHP = 25
+        case .elf:      raceHP = 20
+        case .dwarf:    raceHP = 28
+        case .halfling: raceHP = 22
+        }
         let conBonus = max(0, (con - 10) / 2)
-        self.maxHP = max(1, hpRoll + conBonus)
+        self.maxHP = raceHP + conBonus
         self.currentHP = self.maxHP
         self.armorClass = characterClass.startingAC - max(0, (dex - 10) / 2)
         self.weapon = characterClass.startingWeapon
@@ -315,6 +321,19 @@ struct DungeonTile {
 
 enum MoveResult {
     case moved, blocked, combat(Monster), stairs, chest(String)
+}
+
+// MARK: - Save / Load
+
+struct SavedGame: Codable {
+    var player: Character
+    var inDungeon: Bool
+    var overworldRow: Int
+    var overworldCol: Int
+    var dungeonLevel: Int
+    var dungeonDifficulty: Int
+    var dungeonName: String
+    var dmQuote: String
 }
 
 // MARK: - Combat Result

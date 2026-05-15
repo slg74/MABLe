@@ -106,7 +106,15 @@ struct TitleView: View {
 
                 // Buttons
                 VStack(spacing: 14) {
+                    if gs.hasSavedGame {
+                        Button("▶  CONTINUE") {
+                            gs.loadGame()
+                        }
+                        .buttonStyle(MetalButtonStyle(color: Color(red: 0.1, green: 0.45, blue: 0.15)))
+                    }
+
                     Button("⚔️  ROLL A CHARACTER") {
+                        gs.deleteSave()
                         gs.screen = .characterCreation
                     }
                     .buttonStyle(MetalButtonStyle(color: Color(red: 0.7, green: 0.1, blue: 0.1)))

@@ -81,6 +81,10 @@ struct OverworldView: View {
                         Button("📋 Sheet") { gs.openCharacterSheet() }
                             .font(.system(size: 11, design: .monospaced))
                             .buttonStyle(MetalButtonStyle(color: Color(white: 0.2)))
+
+                        Button("💾 Exit") { gs.exitAndSave() }
+                            .font(.system(size: 11, design: .monospaced))
+                            .buttonStyle(MetalButtonStyle(color: Color(red: 0.15, green: 0.15, blue: 0.35)))
                     }
                 }
                 .padding(.vertical, 14)
