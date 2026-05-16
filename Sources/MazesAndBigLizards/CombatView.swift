@@ -2,6 +2,12 @@ import SwiftUI
 
 private enum CombatPhase { case rollToHit, rollDamage }
 
+fileprivate enum AnimPhase {
+    case none, hit, miss, fumble
+    case damage(Int)
+    var isActive: Bool { if case .none = self { return false }; return true }
+}
+
 struct CombatView: View {
     @EnvironmentObject var gs: GameState
     @State private var phase: CombatPhase = .rollToHit
@@ -14,6 +20,8 @@ struct CombatView: View {
     @State private var pulseMonster: Bool = false
     @State private var shakePlayer: Bool = false
     @State private var partyResults: [GameState.PartyAttackResult] = []
+    @State private var animPhase: AnimPhase = .none
+    @State private var showCombatAnim: Bool = false
 
     var weaponDie: Int { gs.player?.weapon.damageDie ?? 6 }
 
@@ -138,6 +146,15 @@ struct CombatView: View {
                     .padding(.bottom, 10)
             }
         }
+        .overlay {
+            if showCombatAnim {
+                CombatAnimationOverlay(phase: animPhase) {
+                    showCombatAnim = false
+                    animPhase = .none
+                }
+                .environmentObject(gs)
+            }
+        }
         .onAppear {
             displayedValue = 20
             phase = .rollToHit
@@ -180,16 +197,19 @@ struct CombatView: View {
                 isRolling = false
                 withAnimation(.spring()) { showResult = true }
 
+                // fire combat animation immediately after result is known
+                animPhase = result.fumble ? .fumble : result.hit ? .hit : .miss
+                showCombatAnim = true
+
                 if result.fumble {
                     shakePlayer = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { shakePlayer = false }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) { monsterAttack() }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) { monsterAttack() }
                 } else if result.hit {
                     pendingCritical = result.critical
                     withAnimation(.easeInOut(duration: 0.15).repeatCount(3)) { pulseMonster = true }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { pulseMonster = false }
-                    // advance to damage phase
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
                         withAnimation(.easeInOut(duration: 0.2)) {
                             phase = .rollDamage
                             displayedValue = weaponDie
@@ -197,8 +217,7 @@ struct CombatView: View {
                         }
                     }
                 } else {
-                    // miss — monster attacks
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) { monsterAttack() }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) { monsterAttack() }
                 }
                 return
             }
@@ -228,11 +247,14 @@ struct CombatView: View {
                 isRolling = false
                 withAnimation(.spring()) { showResult = true }
 
+                animPhase = .damage(result.damage)
+                showCombatAnim = true
+
                 withAnimation(.easeInOut(duration: 0.15).repeatCount(4)) { pulseMonster = true }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { pulseMonster = false }
 
                 if gs.screen == .combat {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                         monsterAttack()
                         phase = .rollToHit
                         displayedValue = 20
@@ -713,6 +735,157 @@ struct PartyAttacksStrip: View {
         .cornerRadius(6)
         .overlay(RoundedRectangle(cornerRadius: 6).stroke(Color(white: 0.15), lineWidth: 1))
         .transition(.opacity.combined(with: .scale(scale: 0.97)))
+    }
+}
+
+// MARK: - Combat Animation Overlay
+
+struct CombatAnimationOverlay: View {
+    @EnvironmentObject var gs: GameState
+    fileprivate let phase: AnimPhase
+    let onDismiss: () -> Void
+
+    @State private var opacity: Double = 0
+    @State private var weaponX: CGFloat = -24
+    @State private var monsterShakeX: CGFloat = 0
+    @State private var glowRadius: CGFloat = 0
+    @State private var glowOpacity: Double = 0
+    @State private var dmgScale: CGFloat = 0.4
+    @State private var dmgOpacity: Double = 0
+    @State private var dmgOffsetY: CGFloat = 0
+
+    var playerIcon: String { gs.player?.characterClass.icon ?? "🧑" }
+    var monsterIcon: String { gs.combatMonster?.icon ?? "👾" }
+    var weaponIcon: String { gs.player?.weapon.icon ?? "⚔️" }
+
+    var label: String {
+        switch phase {
+        case .hit:         return "HIT!"
+        case .miss:        return "MISS"
+        case .fumble:      return "FUMBLE! 💀"
+        case .damage(let d): return "\(d) DAMAGE!"
+        case .none:        return ""
+        }
+    }
+    var labelColor: Color {
+        switch phase {
+        case .hit:    return .green
+        case .miss:   return Color(white: 0.55)
+        case .fumble: return .red
+        case .damage: return .orange
+        case .none:   return .clear
+        }
+    }
+    var glowColor: Color {
+        switch phase {
+        case .hit, .damage: return .orange
+        case .fumble:       return .purple
+        default:            return .clear
+        }
+    }
+
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.65).ignoresSafeArea()
+
+            VStack(spacing: 18) {
+                ZStack {
+                    // Impact glow behind monster
+                    Circle()
+                        .fill(glowColor.opacity(glowOpacity))
+                        .frame(width: 88, height: 88)
+                        .offset(x: 62)
+                        .blur(radius: glowRadius * 0.4)
+
+                    HStack(spacing: 4) {
+                        Text(playerIcon).font(.system(size: 58))
+
+                        Text(weaponIcon)
+                            .font(.system(size: 28))
+                            .offset(x: weaponX)
+                            .rotationEffect(.degrees(weaponX > 0 ? 40 : 0))
+
+                        ZStack(alignment: .top) {
+                            Text(monsterIcon)
+                                .font(.system(size: 58))
+                                .offset(x: monsterShakeX)
+
+                            if case .damage(let d) = phase {
+                                Text("-\(d)")
+                                    .font(.system(size: 22, weight: .black, design: .monospaced))
+                                    .foregroundColor(.red)
+                                    .shadow(color: .orange.opacity(0.9), radius: 6)
+                                    .scaleEffect(dmgScale)
+                                    .opacity(dmgOpacity)
+                                    .offset(y: dmgOffsetY - 20)
+                            }
+                        }
+                    }
+                }
+
+                Text(label)
+                    .font(.system(size: 22, weight: .black, design: .monospaced))
+                    .foregroundColor(labelColor)
+                    .shadow(color: labelColor.opacity(0.7), radius: 10)
+            }
+        }
+        .opacity(opacity)
+        .onAppear { animate() }
+    }
+
+    private func animate() {
+        withAnimation(.easeIn(duration: 0.15)) { opacity = 1 }
+
+        let targetX: CGFloat
+        switch phase {
+        case .hit, .damage: targetX = 26
+        case .miss:         targetX = 4
+        case .fumble:       targetX = -32
+        case .none:         targetX = 0
+        }
+        withAnimation(.easeIn(duration: 0.22).delay(0.12)) { weaponX = targetX }
+
+        // Impact at ~0.35s
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.34) {
+            switch phase {
+            case .hit, .damage:
+                withAnimation(.easeOut(duration: 0.1)) { glowOpacity = 0.75; glowRadius = 18 }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.12) {
+                    withAnimation(.easeIn(duration: 0.3)) { glowOpacity = 0; glowRadius = 0 }
+                }
+                shakeMonster()
+                if case .damage = phase {
+                    withAnimation(.spring(response: 0.25, dampingFraction: 0.5)) {
+                        dmgScale = 1.2; dmgOpacity = 1
+                    }
+                    withAnimation(.easeOut(duration: 0.55).delay(0.12)) { dmgOffsetY = -28 }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
+                        withAnimation(.easeIn(duration: 0.2)) { dmgOpacity = 0 }
+                    }
+                }
+            case .fumble:
+                withAnimation(.easeOut(duration: 0.1)) { glowOpacity = 0.5; glowRadius = 12 }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                    withAnimation(.easeIn(duration: 0.25)) { glowOpacity = 0; glowRadius = 0 }
+                }
+            default: break
+            }
+        }
+
+        // Fade out and dismiss
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.15) {
+            withAnimation(.easeOut(duration: 0.22)) { opacity = 0 }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { onDismiss() }
+        }
+    }
+
+    private func shakeMonster() {
+        let offsets: [CGFloat] = [9, -9, 7, -7, 4, -4, 0]
+        for (i, x) in offsets.enumerated() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) * 0.065) {
+                withAnimation(.easeInOut(duration: 0.055)) { monsterShakeX = x }
+            }
+        }
     }
 }
 
